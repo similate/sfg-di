@@ -1,5 +1,6 @@
 package similate.springframework.sfgdi.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import similate.springframework.sfgdi.services.GreetingService;
 
@@ -7,9 +8,8 @@ import similate.springframework.sfgdi.services.GreetingService;
 @Controller
 public class ConstructorInjectedController {
     private final GreetingService greetingService;
-
     // Autowired is optional for constructor injection
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
