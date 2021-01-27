@@ -1,12 +1,9 @@
 package similate.springframework.sfgdi;
 
-import similate.springframework.sfgdi.controllers.ConstructorInjectedController;
-import similate.springframework.sfgdi.controllers.MyController;
+import similate.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import similate.springframework.sfgdi.controllers.PropertyInjectedController;
-import similate.springframework.sfgdi.controllers.SetterInjectedController;
 
 @SpringBootApplication
 public class SfgDiApplication {
@@ -14,9 +11,11 @@ public class SfgDiApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
-		MyController myController = ctx.getBean(MyController.class);
-
+		System.out.println("------- I18N Bean -------");
+		I18NController i18nController = (I18NController) ctx.getBean("i18NController");
+		System.out.println(i18nController.sayHello());
 		System.out.println("------- Primary Bean -------");
+		MyController myController = ctx.getBean(MyController.class);
 		System.out.println(myController.sayHello());
 		System.out.println("------- Properties -------");
 		// fails until we tell Spring by the stereotype/decorator that it's a component
