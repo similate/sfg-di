@@ -15,8 +15,9 @@ public class SfgDiApplication {
 
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
 		MyController myController = ctx.getBean(MyController.class);
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+
+		System.out.println("------- Primary Bean -------");
+		System.out.println(myController.sayHello());
 		System.out.println("------- Properties -------");
 		// fails until we tell Spring by the stereotype/decorator that it's a component
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
