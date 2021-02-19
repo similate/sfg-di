@@ -16,9 +16,9 @@ public class SfgDiApplication {
 		PetController petController = ctx.getBean("petController", PetController.class);
 		System.out.println("--- The Best Pet is ---");
 		System.out.println(petController.whichPetIsTheBest());
-		System.out.println("------- I18N Bean -------");
+		/*System.out.println("------- I18N Bean -------");
 		I18NController i18nController = (I18NController) ctx.getBean("i18NController");
-		System.out.println(i18nController.sayHello());
+		System.out.println(i18nController.sayHello());*/
 		System.out.println("------- Primary Bean -------");
 		MyController myController = ctx.getBean(MyController.class);
 		System.out.println(myController.sayHello());
@@ -26,7 +26,7 @@ public class SfgDiApplication {
 		// fails until we tell Spring by the stereotype/decorator that it's a component
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
 		// Fails until you tell spring to inject the service, and what the service is
-		System.out.println(propertyInjectedController.getGreeting());
+		System.out.println(propertyInjectedController.sayHello());
 		System.out.println("------- Setter -------");
 		SetterInjectedController setterInjectedController = ctx.getBean(SetterInjectedController.class);
 		System.out.println(setterInjectedController.getGreeting());

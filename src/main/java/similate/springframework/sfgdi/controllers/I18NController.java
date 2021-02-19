@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import similate.springframework.sfgdi.services.GreetingService;
 
-@Controller
+//@Controller
 public class I18NController {
 
     private final GreetingService greetingService;

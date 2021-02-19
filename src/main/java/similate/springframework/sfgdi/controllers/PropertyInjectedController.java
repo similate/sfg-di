@@ -5,14 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import similate.springframework.sfgdi.services.GreetingService;
 
-// Least preferred
 @Controller
 public class PropertyInjectedController {
-    @Qualifier("propertyInjectedGreetingService")
+    @Qualifier("greetingServiceImpl")
     @Autowired
-    public GreetingService greetingService;
+    public GreetingService greetingServiceImpl;
 
-    public String getGreeting() {
-        return greetingService.sayGreeting();
+    public String sayHello(){
+        return greetingServiceImpl.sayGreeting();
     }
 }
